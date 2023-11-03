@@ -2,7 +2,7 @@ export class Todo {
   constructor(
     public id: number,
     public content: string,
-    public hasFinished = false
+    public hasFinished: boolean = false
   ) {
     //this.id = id;
     //this.content = content;
@@ -12,5 +12,10 @@ export class Todo {
   //content: string;
   //hasFinished: boolean;
   //finisDate: Date | undefined;
-  finisDate?: Date;
+  finishDate?: Date;
+
+  setFinished(finishDate: Date): void {
+    this.hasFinished = true;
+    this.finishDate = finishDate;
+  }
 }
