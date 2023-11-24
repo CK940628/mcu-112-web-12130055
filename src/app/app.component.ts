@@ -11,7 +11,9 @@ import { TodoComponent } from './todo/todo.component';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  content = '代辦事項 A';
+  content = '待辦事項 A';
 
   hasFinished = false;
+
+  finishDate?: Date;
 }
