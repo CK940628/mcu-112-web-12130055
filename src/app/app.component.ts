@@ -12,8 +12,4 @@ export class AppComponent {
   content = '代辦事項 A';
 
   hasFinished = false;
-
-  onSetStatus(hasFinished: boolean): void {
-    this.hasFinished = hasFinished;
-  }
 }
