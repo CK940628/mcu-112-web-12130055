@@ -1,6 +1,7 @@
 import {
   Component,
   EventEmitter,
+  HostBinding,
   Input,
   Output,
   booleanAttribute,
@@ -24,6 +25,9 @@ export class TodoComponent {
   hasFinished!: boolean;
   @Output()
   readonly hasFinishedChange = new EventEmitter<boolean>();
+
+  @HostBinding('class')
+  class = 'app-todo';
 
   onSetStatus(hasFinished: boolean): void {
     this.hasFinishedChange.emit(hasFinished);
