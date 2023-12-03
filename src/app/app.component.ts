@@ -1,5 +1,6 @@
+import { TaskService } from './service/task.service';
 import { JsonPipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Inject, Injectable } from '@angular/core';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
@@ -13,6 +14,7 @@ import { Todo } from './model/todo';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  taskService = Inject(TaskService);
   tasks = [new Todo(1, '待辦事項 A'), new Todo(2, '待辦事項 B')];
 
   onStateChange(task: { index: number; state: boolean }): void {
