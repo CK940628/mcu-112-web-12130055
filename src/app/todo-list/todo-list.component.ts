@@ -13,6 +13,8 @@ import { NgFor, NgIf } from '@angular/common';
 export class TodoListComponent {
   @Input()
   tasks?: Todo[];
+  @Output()
+  remove = new EventEmitter<number>();
 
   @Output()
   stateChange = new EventEmitter<{ id: number; state: boolean }>();
