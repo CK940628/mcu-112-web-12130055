@@ -7,9 +7,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-
 import { Todo } from '../model/todo';
-
 @Component({
   selector: 'app-todo',
   standalone: true,
@@ -24,11 +22,13 @@ export class TodoComponent {
   remove = new EventEmitter<void>();
 
   @Output()
+  view = new EventEmitter<void>();
+
+  @Output()
   readonly stateChange = new EventEmitter<boolean>();
 
   @HostBinding('class')
   class = 'app-todo';
-
   onSetStatus(hasFinished: boolean): void {
     this.stateChange.emit(hasFinished);
   }
