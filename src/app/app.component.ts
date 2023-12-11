@@ -1,6 +1,6 @@
 import { TaskService } from './service/task.service';
 import { JsonPipe } from '@angular/common';
-import { Component, Inject, Injectable } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
@@ -14,9 +14,12 @@ import { Todo } from './model/todo';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  taskService = Inject(TaskService);
+  taskService = inject(TaskService);
   tasks = [new Todo(1, '待辦事項 A'), new Todo(2, '待辦事項 B')];
 
+  onAdd(): void {
+    this.taskService.add('待辦事項 C');
+  }
   onStateChange(task: { index: number; state: boolean }): void {
     if (task.state) {
       this.tasks[task.index].setFinished(new Date());
@@ -24,12 +27,5 @@ export class AppComponent {
       this.tasks[task.index].finishDate = undefined;
       this.tasks[task.index].hasFinished = false;
     }
-  }
-  onSet(): void {
-    this.tasks = [new Todo(1, '待辦事項 A'), new Todo(2, '待辦事項 B')];
-  }
-
-  onClear(): void {
-    this.tasks = [];
   }
 }
