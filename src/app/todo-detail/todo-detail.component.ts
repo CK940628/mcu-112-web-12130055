@@ -9,8 +9,7 @@ import {
 } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Todo } from '../model/todo';
-import { TaskRemoteService } from '../services/task-remote.service';
-
+import { TaskService } from '../service/task.service';
 @Component({
   selector: 'app-todo-detail',
   standalone: true,
@@ -24,7 +23,7 @@ export class TodoDetailComponent implements OnChanges {
 
   task$!: Observable<Todo | undefined>;
 
-  private readonly taskService = inject(TaskRemoteService);
+  private readonly taskService = inject(TaskService);
 
   @HostBinding('class')
   class = 'todo-detail';
