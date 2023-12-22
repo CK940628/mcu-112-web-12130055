@@ -7,7 +7,7 @@ import { Todo } from './model/todo';
 import { TaskService } from './service/task.service';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
-
+import { TodoSearchComponent } from './todo-search/todo-search.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -17,6 +17,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
     HeaderComponent,
     TodoListComponent,
     TodoDetailComponent,
+    TodoSearchComponent,
     FooterComponent,
   ],
   templateUrl: './app.component.html',
@@ -27,9 +28,8 @@ export class AppComponent implements OnInit {
 
   tasks$!: Observable<Todo[]>;
 
+  readonly refresh$ = new Subject<void>();
   selectedId?: number;
-  refresh$: any;
-
   ngOnInit(): void {
     this.tasks$ = this.refresh$.pipe(
       startWith(undefined),
