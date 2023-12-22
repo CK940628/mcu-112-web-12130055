@@ -16,7 +16,7 @@ export class TaskService {
     console.log('Task Service - getAll');
     return of(this.tasks);
   }
-  add(content: string): Observable<Todo> {
+  add({ content }: Todo): Observable<Todo> {
     console.log('Task Service - add');
     const id =
       this.tasks.length === 0
