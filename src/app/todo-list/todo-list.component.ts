@@ -12,6 +12,10 @@ import { TodoComponent } from '../todo/todo.component';
 export class TodoListComponent {
   @Input()
   tasks?: Todo[] | null;
+
+  @Output()
+  edit = new EventEmitter<number>();
+
   @Output()
   remove = new EventEmitter<number>();
 

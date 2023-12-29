@@ -18,6 +18,10 @@ import { Todo } from '../model/todo';
 export class TodoComponent {
   @Input({ required: true })
   task!: Todo;
+
+  @Output()
+  edit = new EventEmitter<void>();
+
   @Output()
   remove = new EventEmitter<void>();
 
