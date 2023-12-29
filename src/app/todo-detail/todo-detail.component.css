@@ -1,20 +1,9 @@
-:host {
-  display: block;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
+div.container {
+  margin: 0px auto;
+  width: 550px;
 }
 
-tr {
-  height: 40px;
-}
-
-tr > td:first-child {
-  width: 150px;
+div.button {
+  margin-top: 10px;
   text-align: center;
-}
-
-tr > td:last-child {
-  padding-left: 20px;
 }
