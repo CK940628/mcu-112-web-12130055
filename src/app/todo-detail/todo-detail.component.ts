@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Todo } from '../model/todo';
-import { TaskService } from '../service/task.service';
+import { TaskService } from '../services/task.service';
 @Component({
   selector: 'app-todo-detail',
   standalone: true,
